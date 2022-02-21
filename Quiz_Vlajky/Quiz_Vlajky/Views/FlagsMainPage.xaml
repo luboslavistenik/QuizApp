@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Quiz_Vlajky.ViewModels;assembly=Quiz_Vlajky"
+             mc:Ignorable="d"
+             x:Class="Quiz_Vlajky.Views.FlagsMainPage"
+             BackgroundColor="#101820">
+
+    <ContentPage.BindingContext>
+        <vm:FlagsMainPageViewModel/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Image Source="QuizApp" Margin="25, 25, 25, 0"/>
+            <ImageButton Source="Europe" BackgroundColor="Transparent" Command="{Binding Click_Command}" CommandParameter="Europe" Margin="40, 0, 40, 10" Grid.Row="1"/>
+            <ImageButton Source="Asia" BackgroundColor="Transparent" Command="{Binding Click_Command}" CommandParameter="Asia" Margin="40, 10" Grid.Row="2"/>
+            <ImageButton Source="America" BackgroundColor="Transparent" Command="{Binding Click_Command}" CommandParameter="America" Margin="40, 10" Grid.Row="3"/>
+            <ImageButton Source="Africa" BackgroundColor="Transparent" Command="{Binding Click_Command}" CommandParameter="Africa" Margin="40, 10" Grid.Row="4"/>
+            <ImageButton Source="World" BackgroundColor="Transparent" Command="{Binding Click_Command}" CommandParameter="World" Margin="40, 10" Grid.Row="5"/>
+        </Grid>
+    </ScrollView>
+</ContentPage>

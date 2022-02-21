@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Quiz_Vlajky.ViewModels"
+             mc:Ignorable="d"
+             x:Class="Quiz_Vlajky.Views.MainPage"
+             BackgroundColor="#101820">
+
+    <ContentPage.BindingContext>
+        <vm:MainPageViewModel/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Image Source="QuizApp" Margin="20, 20, 20, 0"/>
+            <ImageButton Source="Flags" BackgroundColor="Transparent" Command="{Binding Click_Command}" CommandParameter="Flags" Margin="40, 0, 40, 10" Grid.Row="1"/>
+            <ImageButton Source="Networking" BackgroundColor="Transparent" Command="{Binding Click_Command}" CommandParameter="Networking" Margin="40, 10" Grid.Row="2"/>
+        </Grid>
+    </ScrollView>
+</ContentPage>

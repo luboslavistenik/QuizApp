@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Quiz_Vlajky.ViewModels;assembly=Quiz_Vlajky"
+             mc:Ignorable="d"
+             x:Class="Quiz_Vlajky.Views.PlayingPage"
+             BackgroundColor="{Binding BackgroundColor}">
+    
+    <ContentPage.BindingContext>
+        <vm:PlayingPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout Grid.Row="1">
+            <Label Text="{Binding Question.Name}"
+                   HorizontalOptions="Center"
+                   FontSize="30"
+                   TextColor="White"
+                   HorizontalTextAlignment="Center"/>
+                   
+            <Label TextColor="White"
+                   FontSize="15"
+                   HorizontalOptions="Center"
+                   Margin="0, 10, 0, 0">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="{Binding CurrentRound}"/>
+                        <Span Text="/"/>
+                        <Span Text="{Binding TotalRounds}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </StackLayout>
+
+        <StackLayout Grid.Row="3">
+            <Button Text="{Binding Answers[0]}" Command="{Binding SelectCommand}" CommandParameter="0" Margin="30, 0, 30, 10"></Button>
+            <Button Text="{Binding Answers[1]}" Command="{Binding SelectCommand}" CommandParameter="1" Margin="30, 0, 30, 10"></Button>
+            <Button Text="{Binding Answers[2]}" Command="{Binding SelectCommand}" CommandParameter="2" Margin="30, 0, 30, 10"></Button>
+            <Button Text="{Binding Answers[3]}" Command="{Binding SelectCommand}" CommandParameter="3" Margin="30, 0, 30, 10"></Button>
+        </StackLayout>
+    </Grid>
+</ContentPage>

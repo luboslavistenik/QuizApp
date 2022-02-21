@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Quiz_Vlajky.ViewModels;assembly=Quiz_Vlajky"
+             mc:Ignorable="d"
+             x:Class="Quiz_Vlajky.Views.FlagsPlayingPage"
+             BackgroundColor="{Binding BackgroundColor}">
+
+    <ContentPage.BindingContext>
+        <vm:FlagsPlayingPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid RowSpacing="50" ColumnSpacing="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label
+            Grid.Row="1"
+            Grid.Column="1"
+            TextColor="White"
+            FontSize="Large"
+            Margin="70, 0, 0, 0">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="{Binding CurrentRound}" FontSize="30"/>
+                    <Span Text="/" FontSize="30"/>
+                    <Span Text="{Binding TotalRounds}" FontSize="30"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Label
+            Text="{Binding CorrectOption.Name}"
+            Grid.Row="1" Grid.Column="0"
+            HorizontalOptions="Center"
+            FontSize="30"
+            TextColor="White"/>
+
+        <ImageButton Grid.Row="2" Grid.Column="0" BackgroundColor="Transparent" Source="{Binding Options[0].Image}" Command="{Binding SelectFlagCommand}" CommandParameter="0"/>
+        <ImageButton Grid.Row="2" Grid.Column="1" BackgroundColor="Transparent" Source="{Binding Options[1].Image}" Command="{Binding SelectFlagCommand}" CommandParameter="1"/>
+        <ImageButton Grid.Row="3" Grid.Column="0" BackgroundColor="Transparent" Source="{Binding Options[2].Image}" Command="{Binding SelectFlagCommand}" CommandParameter="2"/>
+        <ImageButton Grid.Row="3" Grid.Column="1" BackgroundColor="Transparent" Source="{Binding Options[3].Image}" Command="{Binding SelectFlagCommand}" CommandParameter="3"/>
+    </Grid>
+</ContentPage>

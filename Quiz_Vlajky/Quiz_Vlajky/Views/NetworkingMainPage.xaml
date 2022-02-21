@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Quiz_Vlajky.ViewModels"
+             mc:Ignorable="d"
+             x:Class="Quiz_Vlajky.Views.NetworkingMainPage"
+             BackgroundColor="#101820">
+
+    <ContentPage.BindingContext>
+        <vm:NetworkingMainPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Image Source="QuizApp" Margin="20, 20, 20, 0"/>
+            <ImageButton Source="ccna1kapitola1" BackgroundColor="Transparent" Command="{Binding Click_Command}" CommandParameter="CCNA1_1" Grid.Row="1" Margin="40, 20, 40, 10"/>
+            <ImageButton Source="ccna1kapitola2" BackgroundColor="Transparent" Command="{Binding Click_Command}" CommandParameter="CCNA1_2" Grid.Row="2" Margin="40, 0, 40, 10"/>
+            <ImageButton Source="ccna1kapitola3" BackgroundColor="Transparent" Command="{Binding Click_Command}" CommandParameter="CCNA1_3" Grid.Row="3" Margin="40, 0, 40, 10"/>
+        </Grid>
+    </ScrollView>
+</ContentPage>

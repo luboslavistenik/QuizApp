@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+    
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       mc:Ignorable="d"
+       xmlns:views="clr-namespace:Quiz_Vlajky.Views"
+       x:Class="Quiz_Vlajky.AppShell"
+       FlyoutBehavior="Disabled"
+       NavBarIsVisible="False">
+
+    <ShellItem>
+        <views:MainPage />
+    </ShellItem>
+    
+</Shell>
