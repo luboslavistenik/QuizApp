@@ -1,6 +1,9 @@
 ﻿namespace Quiz_Vlajky.Models;
 
-public class CountryCategory
+public enum CountryCategory
 {
-    
+    EUROPE,
+    ASIA,
+    AMERICA,
+    AFRICA
 }

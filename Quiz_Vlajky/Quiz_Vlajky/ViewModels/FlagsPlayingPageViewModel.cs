@@ -1,6 +1,5 @@
 ﻿using Quiz_Vlajky.Models;
 using System;
-using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -29,6 +28,9 @@ namespace Quiz_Vlajky.ViewModels
 
         private readonly Random _rng;
         private int _correctAnswers;
+        
+        public static List<Country> AllCountries { get; set; }
+        private List<Country> _alreadyUsedCountries = new List<Country>();
 
         public FlagsPlayingPageViewModel()
         {
@@ -106,34 +108,9 @@ namespace Quiz_Vlajky.ViewModels
             _alreadyUsedCountries.Add(CorrectOption);
         }
 
-        public static List<Country> _countries { get; set; }
-
-        public static string selectedContinent { get; set; }
-
-        private List<Country> GetContinent()
-        {
-            switch (selectedContinent)
-            {
-                case "Europe":
-                    return _countries = _europeCountries;
-                case "Asia":
-                    return _countries = _asiaCountries;
-                case "America":
-                    return _countries = _americaCountries;
-                case "Africa":
-                    return _countries = _africaCountries;
-            }
-            return _countries = _worldCountries;
-
-        }
-
-        private List<Country> _alreadyUsedCountries = new List<Country>();
-
         private List<Country> GenerateOptions()
         {
-            _countries = GetContinent();
-
-            var availableCountries = new List<Country>(_countries);
+            var availableCountries = new List<Country>(AllCountries);
 
             if (availableCountries.Count <= OptionsCount)
                 return availableCountries;
@@ -158,50 +135,7 @@ namespace Quiz_Vlajky.ViewModels
 
             return selectedCountries;
         }
-
-        private readonly List<Country> _europeCountries = new List<Country>
-        {
-            "Albania", "Andorra", "Austria", "Belarus", "Belgium", "Bosnia", "Croatia",
-            "Czechia", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary",
-            "Iceland", "Ireland", "Italy", "Latvia", "Liechtenstein", "Lithuania", "Luxembourg", "Malta", "Moldova",
-            "Montenegro", "Netherlands", "Macedonia", "Norway", "Poland", "Portugal",
-            "Romania", "Russia", "San_Marino", "Serbia", "Slovakia", "Slovenia", "Spain", "Sweden", "Ukraine",
-            "United_Kingdom"
-        };
-
-        private readonly List<Country> _asiaCountries = new List<Country>
-        {
-            "Afghanistan", "Armenia", "Azerbaijan", "Bangladesh", "Bhutan", "Brunei", "Cambodia", "Cyprus",
-            "East_Timor", "Georgia", "China", "India", "Indonesia", "Iran", "Iraq", "Israel", "Japan",
-            "Jordan", "Kazachstan", "Kuwait", "Kyrgyzstan", "Laos", "Lebanon", "Malaysia", "Maldives",
-            "Mongolia", "Myanmar", "North_Korea", "Oman", "Pakistan", "Palestine", "Philippines", "Russia",
-            "Saudi_Arabia", "Singapore", "South_Korea", "Sri_Lanka", "Syria", "Taiwan", "Tajikistan",
-            "Thailand", "Turkey", "Turkmenistan", "Uzbekistan", "Vietnam", "Yemen"
-        };
-
-        private readonly List<Country> _americaCountries = new List<Country>
-        {
-            "Anguilla", "Argentina", "Aruba", "Bahamas", "Barbados", "Belize", "Bolivia", "Bonaire",
-            "Brazil", "Canada", "Colombia", "Costa_Rica", "Cuba", "Curacao", "Dominica", "Dominican_Republic",
-            "Ecuador", "El_Salvador", "Falkland_Islands", "Grenada", "Guatemala", "Guyana", "Haiti", "Honduras",
-            "Chile", "Jamaica", "Martinique", "Mexico", "Monsterrat", "Nicaragua", "Panama", "Paraguay", "Peru",
-            "Puerto_Rico", "Saba", "Saint_Lucia", "Sint_Eustatius", "Sint_Maarten", "Suriname", "United_States",
-            "Uruguay", "Venezuela"
-        };
-
-        private readonly List<Country> _africaCountries = new List<Country>
-        {
-            "Algeria", "Angola", "Benin", "Botswana", "Burkina_Faso", "Burundi", "Cameroon", "Cape_Verde",
-            "Central_Africa", "Comoros", "Congo", "Djibouti", "Egypt", "Equatorial_Guinea", "Eritrea",
-            "Eswatini", "Ethiopia", "Gabon", "Gambia", "Ghana", "Guinea", "Guinea_Bissau", "Chad",
-            "Ivory_Coast", "Kenya", "Lesotho", "Liberia", "Libya", "Madagascar", "Malawi", "Mali",
-            "Mauritania", "Mauritius", "Morocco", "Mozambique", "Namibia", "Nigeria", "Rwanda", "Senegal",
-            "Seychelles", "Sierra_Leone", "Somalia", "South_Africa", "South_Sudan", "Sudan",
-            "Tanzania", "Togo", "Tunisia", "Uganda", "Zambia", "Zimbabwe"
-        };
-
-        private List<Country> _worldCountries => _europeCountries.Concat(_americaCountries).Concat(_asiaCountries).Concat(_africaCountries).ToList();
-
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void RaisePropertyChanged([CallerMemberName] string propertyName = null) =>

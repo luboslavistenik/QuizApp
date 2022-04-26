@@ -19,7 +19,18 @@ namespace Quiz_Vlajky.Services
             await ExtractDatabase(path);
 
             _connection = new SQLiteAsyncConnection(path);
+            await _connection.CreateTableAsync<Country>();
             await _connection.CreateTableAsync<Question>();
+        }
+
+        public Task<List<Country>> GetAllCountries()
+        {
+            return _connection.Table<Country>().ToListAsync();
+        }
+
+        public Task<List<Country>> GetCountriesByCategory(CountryCategory category)
+        {
+            return _connection.Table<Country>().Where(c => c.Category == category).ToListAsync();
         }
 
         public Task<List<Question>> GetAllQuestions()
@@ -27,7 +38,7 @@ namespace Quiz_Vlajky.Services
             return _connection.Table<Question>().ToListAsync();
         }
 
-        public Task<List<Question>> GetQuestionsByCategory(Category category)
+        public Task<List<Question>> GetQuestionsByCategory(QuestionCategory category)
         {
             return _connection.Table<Question>().Where(q => q.Category == category).ToListAsync();
         }

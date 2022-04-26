@@ -23,11 +23,11 @@
             </Grid.RowDefinitions>
 
             <Image Source="QuizApp" Margin="25, 25, 25, 0"/>
-            <ImageButton Source="Europe" BackgroundColor="Transparent" Command="{Binding Click_Command}" CommandParameter="Europe" Margin="40, 0, 40, 10" Grid.Row="1"/>
-            <ImageButton Source="Asia" BackgroundColor="Transparent" Command="{Binding Click_Command}" CommandParameter="Asia" Margin="40, 10" Grid.Row="2"/>
-            <ImageButton Source="America" BackgroundColor="Transparent" Command="{Binding Click_Command}" CommandParameter="America" Margin="40, 10" Grid.Row="3"/>
-            <ImageButton Source="Africa" BackgroundColor="Transparent" Command="{Binding Click_Command}" CommandParameter="Africa" Margin="40, 10" Grid.Row="4"/>
-            <ImageButton Source="World" BackgroundColor="Transparent" Command="{Binding Click_Command}" CommandParameter="World" Margin="40, 10" Grid.Row="5"/>
+            <ImageButton Source="Europe" BackgroundColor="Transparent" Command="{Binding Click_Command}" CommandParameter="EUROPE" Margin="40, 0, 40, 10" Grid.Row="1"/>
+            <ImageButton Source="Asia" BackgroundColor="Transparent" Command="{Binding Click_Command}" CommandParameter="ASIA" Margin="40, 10" Grid.Row="2"/>
+            <ImageButton Source="America" BackgroundColor="Transparent" Command="{Binding Click_Command}" CommandParameter="AMERICA" Margin="40, 10" Grid.Row="3"/>
+            <ImageButton Source="Africa" BackgroundColor="Transparent" Command="{Binding Click_Command}" CommandParameter="AFRICA" Margin="40, 10" Grid.Row="4"/>
+            <ImageButton Source="World" BackgroundColor="Transparent" Command="{Binding Click_Command}" Margin="40, 10" Grid.Row="5"/>
         </Grid>
     </ScrollView>
 </ContentPage>
